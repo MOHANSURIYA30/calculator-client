@@ -1,0 +1,56 @@
+<div class="container">
+    <div *ngIf="show" class="notification">{{message}}</div>
+    <div class="calc-container">
+    <h2>Title</h2>
+    <input [(ngModel)]="title" class="title-input" type="text">
+    <h2 class="calc-head">Calculations</h2>
+    <div class="display">
+    <div>{{value}}</div>
+    <div *ngIf="value.length == 0" >0</div>
+  </div>
+  <div class="buttons">
+    <div class="button-row">
+        <button class="button" (click)="clear()">AC</button>
+        <button class="button" (click)="erase()">Del</button>
+        <button class="button" (click)="onClick('*')">*</button>
+        <button class="button" (click)="onClick('/')" >/</button>
+    </div>
+    <div class="button-row">
+        <button class="button" (click)="onClick(7)">7</button>
+        <button class="button" (click)="onClick(8)">8</button>
+        <button class="button" (click)="onClick(9)">9</button>
+        <button class="button" (click)="onClick('-')">-</button>
+    </div>
+    <div class="button-row">
+        <button class="button" (click)="onClick(4)">4</button>
+        <button class="button" (click)="onClick(5)">5</button>
+        <button class="button" (click)="onClick(6)">6</button>
+        <button class="button" (click)="onClick('+')">+</button>
+    </div>
+    <div class="button-row">
+        <button class="button" (click)="onClick(1)">1</button>
+        <button class="button" (click)="onClick(2)">2</button>
+        <button class="button"(click)="onClick(3)">3</button>
+        <button class="button" (click)="equal()">=</button>
+    </div>
+    <div class="button-row">
+        <button class="button" (click)="onClick(0)">0</button>
+        <button class="button" (click)="onClick('.')">.</button>
+        <button class="button" style="flex-grow: 1;" (click)="save()">Save</button>
+    </div>
+  </div>
+</div> 
+<div class="data-container">
+<h2>Saved Details</h2>
+<div class="content-container">
+  <div class="content"  *ngFor="let detail of details" >
+    <div >
+        <span>{{detail.title}}</span> : <span>{{detail.value}}</span>
+    </div>
+    <div>
+        <button class="delete-button" (click)="delete(detail._id)">Delete</button>
+    </div>
+  </div>  
+</div>
+</div>    
+</div>
