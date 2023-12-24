@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AppService {
 
-  API_URL :any = environment.apiUrl 
+
+  API_URL :any = environment.api_Url
   constructor(private http:HttpClient) { }
 
   getDetails()
